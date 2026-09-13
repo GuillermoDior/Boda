@@ -202,7 +202,7 @@
   @media (min-width: 1400px){
     .page{
       display: flex;
-      align-items: stretch;
+      align-items: flex-start;
       justify-content: center;
     }
 
@@ -973,6 +973,22 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // ---- Ajustar la altura de las columnas de fotos al contenido ----
+  function syncFilmstripHeight(){
+    var contentCol = document.querySelector('.content-col');
+    var filmstrips = document.querySelectorAll('.filmstrip');
+    if(!contentCol || !filmstrips.length) return;
+    var h = contentCol.offsetHeight;
+    filmstrips.forEach(function(fs){
+      fs.style.maxHeight = h + 'px';
+      fs.style.overflow = 'hidden';
+    });
+  }
+
+  window.addEventListener('load', syncFilmstripHeight);
+  window.addEventListener('resize', syncFilmstripHeight);
+  setTimeout(syncFilmstripHeight, 300);
 })();
 </script>
 
