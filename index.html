@@ -204,6 +204,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: center;
+      width: 100%;
     }
 
     .content-col{
@@ -215,11 +216,18 @@
     .filmstrip{
       display: flex;
       flex-direction: row;
-      justify-content: center;
       align-items: flex-start;
-      flex: 0 0 auto;
+      flex: 1 1 0;
       gap: 8px;
-      padding: 8px 10px;
+      padding: 8px 16px;
+    }
+
+    .filmstrip--left{
+      justify-content: flex-start;
+    }
+
+    .filmstrip--right{
+      justify-content: flex-end;
     }
 
     .filmstrip__col{
